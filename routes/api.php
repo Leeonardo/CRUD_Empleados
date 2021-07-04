@@ -20,4 +20,6 @@ Route::get('/user', function (Request $request) {
 });
 
 
-Route::get('/empleado', [EmpleadosController::class,'index']);
+Route::get('/empleados', [EmpleadosController::class,'index']);
+
+Route::get('/empleados/{$id}', [EmpleadosController::class,'show']);
