@@ -38,7 +38,7 @@ class EmpleadosController extends Controller
     public function update(Request $request, $id)
     {
 
-        Empleado::where('id','=',$id)->update($datosEmpleado);
+        Empleado::where('id','=',$id)->update();
 
         $empleado=Empleado::findOrFail($id);
         // return view('empleado.edit', compact('empleado'));
@@ -47,7 +47,7 @@ class EmpleadosController extends Controller
     public function destroy($id)
     {      
         $empleado=Empleado::findOrFail($id);
-        if(Storage::delete()){
+        if(Storage::delete('public/'.$empleado)){
 
             Empleado::destroy($id);
         }
