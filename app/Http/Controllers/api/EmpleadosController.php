@@ -17,7 +17,9 @@ class EmpleadosController extends Controller
 
      public function show(Empleado $id)
     {
-        return response()->json($id);
+         $idempleado = response()->json($id);
+         $empleado = request()->except('created_at', 'updated_at');
+         return $idempleado;
         
     }
          public function store(Request $request)
@@ -31,9 +33,7 @@ class EmpleadosController extends Controller
     {
         
         $empleado = Empleado::findOrFail($id);
-
-      //  return view('empleado.edit', compact('empleado'));
-       // return responde()->json($empleado);
+       //return responde()->
     }
     public function update(Request $request, $id)
     {
@@ -41,7 +41,6 @@ class EmpleadosController extends Controller
         Empleado::where('id','=',$id)->update();
 
         $empleado=Empleado::findOrFail($id);
-        // return view('empleado.edit', compact('empleado'));
         return redirect('empleado')->with('mensaje','Empleado Modificado');
     }
     public function destroy($id)

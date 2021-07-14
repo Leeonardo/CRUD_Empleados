@@ -24,4 +24,4 @@ Route::get('/empleados', [EmpleadosController::class,'index']);
 
 Route::get('/empleados/{id}', [EmpleadosController::class,'show']);
 
-Route::get('empleado/agregado', [EmpleadosController::class,'store']);
+Route::apiResource('users', [UserController::class, 'index']);
